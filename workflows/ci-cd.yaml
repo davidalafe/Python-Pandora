@@ -1,0 +1,23 @@
+name: Dev pandora
+on: [push]
+jobs:
+  I-AM-Myself:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say my Code
+        run: echo "The Awesome pandora Team"
+
+  Clone-My-Repository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: List all the file
+        run: Ls -larh
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: python-pandora
+
