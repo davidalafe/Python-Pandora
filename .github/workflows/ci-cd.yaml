@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Say my Code
         run: echo "The Awesome pandora Team"
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   Clone-My-Repository:
     runs-on: ubuntu-latest
